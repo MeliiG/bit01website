@@ -75,41 +75,6 @@ body{
 }
 
 
-.box_input small{
-    color: #e21414;
-    visibility: hidden;
-    
-}
-.box_input_error small{
-   visibility: visible;
-   background-color: rgb(218, 44, 21);
-}
-
-.box_input_todook{
-    background-color: rgb(8, 163, 8);
-}
-    
-   
-
-
-.box_input i{
-    /* visibility: hidden; */
-   
-    position: absolute;
-   
-}
-
-/* .box_input i2 {
-    position: relative;
-    top: -37.5px;
-    left: 129.7px;
-}
-
-.box_input i3 {
-    position: relative;
-    top: -37.5px;
-    left: 152.9px;
-} */
 
 #especialistas,
 #fecha,
@@ -165,7 +130,7 @@ body{
 .box{
     margin-top: 40px;
     background: rgba(255, 255, 255, 0.775);
-    padding: 5%;
+    padding: 1%;
     border-radius: 5%;
 }
 .box i{

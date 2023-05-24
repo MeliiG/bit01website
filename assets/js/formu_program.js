@@ -1,76 +1,20 @@
 'use strict'
-window.addEventListener('load', function(){
+ window.addEventListener('load', function(){ 
 
-    /* const formulario=document.getElementById('formulario');
-    const nombres= document.getElementById('nombres');
-    const apellidos= document.getElementById('apellidos');
-    const correo= document.getElementById('correo');
-    const celular= document.getElementById('celular');
-    
-    
-
-    function chequeoInputs(){
-        const nombresvalue=nombres.Value.trim();
-        const apellidosvalue=apellidos.nodeName.trim();
-        const correovalue=cooreo.value.trim();
-        const celularvalue=celular.value.trim();
-
-        if(nombresvalue===''){
-            setErrorFor(nombres, 'No puede dejar el usuairo en blanco');
-        } else {
-            setSuccessFor(nombres);
-        }
-    }
-    
-    function Error(input,message){
-        const box_input=input.parentElement;
-        const small = box_input.querySelector('small');
-        box_input.className='box_input_error';
-        small.innerText=message;
-    }
-
-    function todook(input){
-        const box_input=input.parentElement;
-        box_input.className='box_input_todook';
-    }
-
-    function isEmail(correo){
-
-        return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(correo);
-    } */
-
+    console.log("DOM cargado");
 
     var incorrecto =document.querySelector(".incorrecto");
-    var formu=document.querySelector(".formu");
+    var formu=document.querySelector("#formu");
     var box_dashed=document.querySelector(".dashed");
     box_dashed.style.display="none";
 
-   /*  const formulario={
-        nombres:null,
-    };
-
-    formu.nombres.addEventListener('input',(e)=>{
-        formulario.nombres= e.target.value;
-        console.log(nombres);
-    });
-
-    formu.addEventListener('click',(e)=>{
-        e.preventDefault();
-        if(formulario.nombres!=null){
-            formu.nombres.style.color ="green";
-        }else{
-            formu.nombres.style.color="red";
-            nombres.innerHTML="Por favor ingresa bn el nombre";
-        }
-
-    }); */
 
 
 
     formu.addEventListener('submit',function(e){
         console.log("EVENTO SUBMIT CAPTURADO");
         e.preventDefault();
-        console.log(formu);
+        
 
         var nombres= document.querySelector("#nombres").value;
         var apellidos= document.querySelector("#apellidos").value;
@@ -78,41 +22,53 @@ window.addEventListener('load', function(){
         var celular= document.querySelector("#celular").value;
         var especialistas= document.querySelector("#especialistas").value;
         var fecha= document.querySelector("#fecha").value;
+        
 
-               
-         if(nombres.trim()==null|| nombres.trim().length==0){
 
-           
-            alert('El nombre no es valido');
-            return false;
-        } 
+        const expresiones = {
+            Nombres: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // 
+            Apellidos: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // 
+            Correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+            Celular: /^\d{10,13}$/ // 
+        }
+        console.log(nombres);
+    
+        if(nombres.trim()==null|| nombres.trim().length==0||expresiones.Nombres.test(nombres)==false){
+        
+                    alert("El campo Nombre es INCORRECTO, favor Digitarlo NUEVAMENTE");
+                    document.querySelector("#nombres").style.boxShadow="0 0 7px red";
+                    return false;
+                }else  if(apellidos.trim()==null|| apellidos.trim().length==0||expresiones.Apellidos.test(apellidos)==false){
+        
+                        alert("El campo Apellidos es INCORRECTO, favor Digitarlo NUEVAMENTE");
+                        document.querySelector("#apellidos").style.boxShadow="0 0 7px red";
+                        return false;
 
-        if(apellidos.trim()==null|| apellidos.trim().length==0){
-            alert('los apellidos no son valido');
-            
-            return false;
+
+                 } else if(correo == null ||expresiones.Correo.test(correo)==false){
+                            alert('El campo correo es INCORRECTO, favor Digitarlo NUEVAMENTE');
+                            document.querySelector("#correo").style.boxShadow="0 0 7px red";
+                            return false;
+
+                    } else if(celular.trim()==null|| celular<=-1||celular.trim().length==0||expresiones.Celular.test(celular)==false){
+                        alert('El campo celular esta incompleto, favor Digitarlo');
+                        document.querySelector("#celular").style.boxShadow="0 0 7px red";
+                        return false;
+                        
+                    } else if(especialistas.trim()==null|| especialistas.trim()=="Seleccione al especialista"){
+                            alert('elije un especialista');
+                            document.querySelector("#especialistas").style.boxShadow="0 0 7px red";
+                            return false;
+                        
+        }else {
+            document.querySelector("#nombres").style.boxShadow="0 0 7px green";
+            document.querySelector("#apellidos").style.boxShadow="0 0 7px green";
+            document.querySelector("#correo").style.boxShadow="0 0 7px green";
+            document.querySelector("#celular").style.boxShadow="0 0 7px green";
+            document.querySelector("#especialistas").style.boxShadow="0 0 7px green";
         }
 
-        if(correo.trim()==null|| correo.trim().length==0){
-            alert('el correo es invalido');
-            
-            return false;
-        }
-
-        if(celular.trim()==null|| celular<=-1||celular.trim().length==0){
-            alert('el celular es invalido');
-            
-            return false;
-        }
-        if(correo == null ){
-            alert('el correo no es valido');
-            return false;
-        }
-
-        if(especialistas.trim()==null|| especialistas.trim().length==0){
-            alert('elije un especialista');
-            return false;
-        } 
+       
 
         box_dashed.style.display="block";
         var datos=[nombres,apellidos,correo,celular,especialistas,fecha];
@@ -124,6 +80,6 @@ window.addEventListener('load', function(){
             box_dashed.append(parrafo);
         }
 
-    });
+    }); 
 
-});
+ }); 
