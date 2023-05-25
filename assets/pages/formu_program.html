@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>programacion</title>
+    <link rel="stylesheet" href="../css/formu_program.css">
+    <script src="https://kit.fontawesome.com/962275a130.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div id="contenedor">
+
+        <h1 id="titulo"> Agenda con tu especialista </h1>
+
+        <form action="#" id="formu"  onsubmit="return false">
+            <div class="menu_info_usuario">              
+                <div class="box_input">
+                    <label for="nombres">Nombres</label>
+                    <input class="check" type="text" name="nombres" id="nombres" placeholder="Ingresa tus Nombres" >
+                </div>
+                
+                <div class="box_input">
+                    <label for="apellidos">Apellidos</label>
+                    <input type="text" name="apellidos" id="apellidos" placeholder="Ingresa tus Apellidos" >
+                </div>
+                <div class="box_input">
+                    <label for="correo">Correo</label>
+                    <input type="email" name="correo" id="correo" placeholder="Ingresa el correo" >
+                </div>
+                <div class="box_input">
+                    <label for="celular">Numero Celular</label>
+                    <input type="number" name="celular" id="celular" placeholder="Ingresa celular" >
+                </div>
+                <div class="box_input" >
+                    <label for="especialistas">Especialistas</label>
+                    <select name="" id="especialistas" required>
+                        <option disabled selected="">Seleccione al especialista</option>
+                        <optgroup label="Zona 1">
+                        <option value="1"> 1 - Luis Alvarez - zona 1 </option>
+                        <option value="2"> 2 - Gisell Dominguez - zona 1 </option>
+                        </optgroup>
+                        <optgroup label="Zona 2">
+                        <option value="3"> 3 - Jessica Maria Valbuena - zona 2 </option>
+                        <option value="4"> 4 - Isabella Torrez- zona 2 </option>
+                        </optgroup>
+                        <optgroup label="Zona 3">
+                        <option value="5"> 5 - Oscar Arturo Gonzales zona 3 </option>
+                        <option value="6"> 6 - Gustavo Alarcon vanegas zona 3 </option>
+                        </optgroup>
+                        <optgroup label="Zona 4">
+                        <option value="7"> 7 - Maribel Rosado Fernandez Zona 4</option>
+                        <option value="8"> 8 - Isabella Torrez- Zona 4 </option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="box_input">
+                    <label for="fecha">Fecha Programada</label>
+                    <input type="date" name="fecha" id="fecha" placeholder="Seleccione fecha" required>
+                </div>
+
+                <div class="botonsubmit"  id="submit">
+                    <input type="submit" value="Programar" >
+                </div>
+
+            </div>
+        </form>
+
+    </div>
+
+    <div class="box dashed">
+        <i class="fa-solid fa-circle-check" style="color: #31a033;"></i>
+         <h3> Programacion Lista </h3>
+         <hr>
+
+    </div>
+
+    <script src="../js/formu_program.js"></script>    
+</body>
+</html>
