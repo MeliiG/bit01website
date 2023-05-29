@@ -7,6 +7,8 @@
 body {
   display: block;
   margin: 8px;
+  /* overflow: hidden; */
+
 }
 
 /*Inicio en celular*/
@@ -187,19 +189,161 @@ header {
 
 
   /*Fin en celular*/
+  
+  @media screen and (min-width: 320px ){
+
+    label {
+      top: 201px;     
+  }
+
+  input:checked + nav {
+    width: 100%;
+    height: 38.3vh;
+}
+
+#logo {
+  width: 110.1%;
+}
+    #card1 {
+      height: 13.6vh;
+    }
+
+    #section_principal {
+      width: 100%;
+      height: 89vh;
+  }
+
+  #paseador {
+    width: 99%;
+}
+
+.boton {
+  margin-left: 14.4%;
+}
+  #paseador2 {
+  width: 104%;
+  margin-top: 10%;
+}
+
+   
+
+#section_definicion {
+  height: 111.5vh;
+}
+
+#section_banner img {
+  width: 100.5%;
+}
+footer {
+  height: 21.9vh;
+  width: 100.7%;
+}
+
+  }
+
+
+  @media screen and (min-width: 483px ){
+    label {
+      top: 630.9%;
+  }
+
+  #card1 {
+    
+    height: 10vh;
+}
+
+  .boton {
+    margin-left: 28.9%;
+}
+#section_definicion {
+  height: 80vh;
+
+}
+#carta1, #carta2, #carta3 {
+  font-size: 20px;
+  line-height: 29px;
+  margin: 19px;
+}
+
+#section_banner img {
+  margin-top: 20%;
+}
+
+  }
+/* @media screen and (min-width: 375px ){
+  #logo img {
+    width: 91.8%;
+}
+  label {
+  top: 213.9px;
+  right: 30.4px;
+}
+
+#paseador {
+  width: 105.8%;
+}
+
+#paseador p {
+  margin-left: 2.2%;
+}
+
+#card1 {
+  margin-left: 6.7%;
+  height: 10vh;
+}
+
+  #logo img {
+    width: 108.5%;
+  }
+
+  #section_principal {
+    width: 85.6%;
+    height: 77.8vh;
+}
+.boton {
+  margin-left: 15.9%;
+  margin-bottom: 5.8%;
+}
+  #paseador {
+    width: 84.4%;
+}
+#paseador2 {
+  width: 84.9%;
+}
+
+  #section_definicion {
+  height: 80.7vh;
+}
+#section_banner img {
+  width: 111.6%;
+}
+  footer{
+    height: 18.7vh;
+    width: 111.3%;
+    
+  }
+
+  #carta1, #carta2, #carta3 {
+    padding-bottom: 10px;
+    margin-left: 5.9%;}
+} */
+
 
  /*Inicio en tablet*/
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px ) {
     
+    #logo {
+      width: 102.7%;
+  }
     /* inicio de barra de navegacion */
     header {
-     /*  padding-top: 16px; */height: 48px;
+     /*  padding-top: 16px; *//* height: 48px; */
     }
     label {
       display: none;
     }
     nav {
-      
+      width: 104%;
       background-color: rgba(255, 199, 161, 0.54);
       position: unset;
       transform: translateY(0);
@@ -236,7 +380,7 @@ header {
       }
 
       #section_principal{
-        width: 100%;
+        width: 102.5%;
         height:100vh;
         background: rgba(3, 3, 3, 0.2) fixed no-repeat 25% 25%;
         background-size: cover;
@@ -293,6 +437,9 @@ header {
       
     }
 
+    #section_banner img {
+      margin-top: 20%;
+    }
   
   }
   /*Fin en tablet*/
@@ -306,11 +453,20 @@ header {
         height: 190px;
     }
    
-    #logo{
-        width: 20%;
-        
+    
+    #logo {
+    width: 27.5%;
+      }
+    
+    a:hover {
+        font-weight: bold;
+        background-color:#ffc7a1ce ;
+        padding: 10px;
+        border-radius: 4px;
     }
+    
     nav {
+      width: 63.1%;
         margin-top: -9.3%;
         margin-left: 371.1px;
         font-size: 24px;
@@ -346,7 +502,7 @@ header {
 
     #section_definicion{
       display: block;
-      height:120vh;    
+      height: 189.6vh;    
       width: 100%;
      /* background-color: aqua; */       
     }
@@ -363,14 +519,15 @@ header {
       #paseador p {
         font-size: 40px;
         text-align: justify;
-        margin-left: 200px;
+        margin-left: 153.7px;
         padding-top: 150px;
         padding-bottom: 120px;
         
     }
 
       .boton {
-        margin-left: 47.6%;
+        margin-left: 43.8%;
+        margin-bottom: 9.1%;
     }
 
     #paseador2{
@@ -388,5 +545,29 @@ header {
   }
 
   /* Fin contenedor 1 */
+  }
+
+  @media screen and (min-width: 1440px) {
+    #header {
+      position: unset;
+      height: 356.5px;
+  }
+
+    nav{
+      margin-left: 600px;
+    }
+
+    .boton {
+      margin-left: 47.2%;
+      margin-bottom: 9.1%;
+    }
+
+    #carta1, #carta2, #carta3 {
+      font-size: 30px;
+      line-height: 34px;
+      margin: 39.9px;
+  }
+
+
   }
   /*FIN Pantalla*/

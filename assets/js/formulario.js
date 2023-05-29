@@ -10,7 +10,9 @@
     error.style.color='rgb(139, 15, 15)';
     box_dashed.style.display="none";
 
+    var MensajeError=[];
 
+    
 
 
     formu.addEventListener('submit',function(e){
@@ -28,14 +30,14 @@
 
 
         const expresiones = {
-            Nombres: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // 
-            Apellidos: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // 
+            Nombres: /^[a-zA-ZÀ-ÿ\s]{4,40}$/, // 
+            Apellidos: /^[a-zA-ZÀ-ÿ\s]{5,40}$/, // 
             Correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
             Celular: /^\d{10,13}$/ // 
         }
         console.log(nombres);
 
-       var MensajeError=[];
+      
         
     
         if(nombres.trim()==null|| nombres.trim().length==0||expresiones.Nombres.test(nombres)==false){
@@ -43,8 +45,8 @@
                    /*  alert("El campo Nombre es INCORRECTO, favor Digitarlo NUEVAMENTE"); */
                   MensajeError.push('El campo Nombre es INCORRECTO, favor Digitarlo NUEVAMENTE '); 
                      document.querySelector("#nombres").style.boxShadow="0 0 7px red";
-                    /* console.log(MensajeError); */
-                    error.innerHTML= MensajeError.join(', '); 
+                     error.innerHTML= MensajeError.join(', ');
+                    
                     return false;
                 } else if(apellidos.trim()==null|| apellidos.trim().length==0||expresiones.Apellidos.test(apellidos)==false){
         
@@ -105,8 +107,51 @@
             var parrafo= document.createElement("p");
             parrafo.append(datos[indice]);
             box_dashed.append(parrafo);
+            error.innerHTML= MensajeError.splice(1); 
         }
 
     }); 
+
+    formu.addEventListener('input',function(e){
+        console.log("EVENTO SUBMIT CAPTURADO 2 change");
+        e.preventDefault();
+        
+        if(nombres!==null||expresiones.Nombres.test(nombres)==true){
+            document.querySelector("#nombres").style.boxShadow="0 0 7px green";
+            /* MensajeError.delete; */
+            error.innerHTML= MensajeError.splice(1); 
+            
+        }
+
+        if(apellidos!=null||expresiones.Apellidos.test(apellidos)==true){
+            document.querySelector("#apellidos").style.boxShadow="0 0 7px green";
+            /* MensajeError.delete; */
+            error.innerHTML= MensajeError.pop(1); 
+            
+        }
+
+        if(correo!=null||expresiones.Correo.test(correo)==true){
+            document.querySelector("#correo").style.boxShadow="0 0 7px green";
+            /* MensajeError.delete; */
+            error.innerHTML= MensajeError.pop(1); 
+            
+        }
+
+        if(celular!=null||expresiones.Celular.test(celular)==true){
+            document.querySelector("#celular").style.boxShadow="0 0 7px green";
+            /* MensajeError.delete; */
+            error.innerHTML= MensajeError.pop(1); 
+            
+        }
+
+        if(especialistas!=null|| especialistas!="Seleccione al especialista"){
+            document.querySelector("#especialistas").style.boxShadow="0 0 7px green";
+            /* MensajeError.delete; */
+            error.innerHTML= MensajeError.pop(1); 
+            
+        }
+        
+    
+    });
 
  }); 
