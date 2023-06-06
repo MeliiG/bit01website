@@ -20,19 +20,23 @@
                 <div class="box_input">
                     <label for="nombres">Nombres</label>
                     <input class="check" type="text" name="nombres" id="nombres" placeholder="Ingresa tus Nombres" >
+                    <span id="error1"></span>
                 </div>
                 
                 <div class="box_input">
                     <label for="apellidos">Apellidos</label>
                     <input type="text" name="apellidos" id="apellidos" placeholder="Ingresa tus Apellidos" >
+                    <span id="error2"></span>
                 </div>
                 <div class="box_input">
                     <label for="correo">Correo</label>
                     <input type="email" name="correo" id="correo" placeholder="Ingresa el correo" >
+                    <span id="error3"></span>
                 </div>
                 <div class="box_input">
                     <label for="celular">Numero Celular</label>
                     <input type="number" name="celular" id="celular" placeholder="Ingresa celular" >
+                    <span id="error4"></span>
                 </div>
                 <div class="box_input" >
                     <label for="especialistas">Especialistas</label>
@@ -55,14 +59,16 @@
                         <option value="8"> 8 - Isabella Torrez- Zona 4 </option>
                         </optgroup>
                     </select>
+                    <span id="error5"></span>
                 </div>
                 <div class="box_input">
                     <label for="fecha">Fecha Programada</label>
                     <input type="date" name="fecha" id="fecha" placeholder="Seleccione fecha" required>
+                    <span id="error6"></span>
                 </div>
 
                 <div class="botonsubmit"  id="submit">
-                    <input type="submit" value="Programar" >
+                    <input type="submit" value="Programar" id="aceptar" >
                 </div>
 
             </div>
