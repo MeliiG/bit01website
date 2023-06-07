@@ -356,20 +356,52 @@
             // box_dashed.appendChild( respuesta1);
             // box_dashed.appendChild( respuesta2);
 
+           /*  console.log(typeof formulario); */
 
-
-        // };
-    })
-
-         var box_dashed=document.querySelector(".dashed");
-        box_dashed.style.display="block";
-        var datos=formulario.nombre;
+            
+            if(validacionNombre()===true&&
+                validacionApellido()===true&&
+                validacionCorreo()===true&&
+                validacionCelular()===true&&
+                validacionEspecialistas()===true&&
+                validacionFecha()===true            
+            ){
         
-        // var indice;
-        // for(indice in datos){
-            var parrafo= document.createElement("p");
-            parrafo.appendChild(datos);
-            box_dashed.appendChild(parrafo); 
+            var box_dashed=document.querySelector(".dashed");
+            box_dashed.style.display="block";
+            var datos=formulario;
+            var indice;
+            for(indice in datos){
+
+                
+                var parrafo= document.createElement("p");
+                parrafo.append(datos[indice]);
+                box_dashed.append(parrafo)
+            
+            
+    
+            };
+        }
+        else{
+            console.log("Hay errores Fijate")
+        }
+    
+        
+    //     box_dashed.style.display="block";
+    //     var datos=[nombres,apellidos,correo,celular,especialistas,fecha];
+    //     console.log(datos);
+    //     var indice;
+    //     for(indice in datos){
+    //         var parrafo= document.createElement("p");
+    //         parrafo.append(datos[indice]);
+    //         box_dashed.append(parrafo);
+    //         error.innerHTML= MensajeError.splice(1); 
+    //     }
+
+
+
+        
+    }); 
             /* error.innerHTML= MensajeError.splice(1);  */
         
 
