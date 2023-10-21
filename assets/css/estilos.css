@@ -11,6 +11,20 @@ body {
 
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+#logo {
+  width: 100%; /* ejemplo usando porcentaje */
+}
+
+#card1 {
+  max-width: 90%; /* ejemplo usando porcentaje */
+}
+
+
 /*Inicio en celular*/
 /* inicio de barra de navegacion */
 #header{
@@ -104,9 +118,11 @@ header {
       display: block;
       height:75vh;    
       width: 100%;
-      /* background-color: aqua;  */         
+      /* background-color: aqua;  */       
+        
    
     }
+    
 
     #paseador{
       width: 90%;
@@ -117,7 +133,7 @@ header {
     text-align: justify;
      font-size: 18px;
     }
-    .boton{
+    /* .boton{
       margin-left: 20%;
       display: inline-block;
       background-color: rgb(227, 192, 108);
@@ -134,7 +150,29 @@ header {
     .boton:hover{
       background-color: aqua;
       transform: all 3ms;
-    }
+    } */
+
+    .boton {
+      margin-left: 43.8%;
+      margin-bottom: 9.1%;
+      font-size: 15px;
+      font-weight: bolder;
+      line-height: 3em;
+      padding: 1.5em 3em;
+      color: black;
+      text-decoration: none;
+      border-radius: 2em;
+      box-shadow: 0px 0px 15px #ffff inset;
+      background-color: rgb(227, 192, 108); /* Color de fondo en el estado normal */
+      transition: background-color 0.3s ease; /* Solo aplicar la transición a la propiedad de fondo */
+  }
+  
+  .boton:hover {
+      transform: scale(2.00); /* Escala ligeramente el botón al pasar el mouse sobre él */
+      background-color: #a7a7a7; /* Cambia el color de fondo al pasar el mouse */
+  }
+  
+  
 
     #paseador2{
       display: flex;
@@ -148,12 +186,19 @@ header {
       flex-wrap: nowrap;
       text-align: center;
       align-items: center;
-      background-color: rgba(240, 248, 255, 0.275);
+      background-color: rgba(240, 248, 255, 0.448);
       line-height: 18px;
       margin: 4px;
-      padding-bottom: 2px;
+      padding-bottom: 2%;
+      border-radius: 5%;
       
     }  
+
+    #carta1:hover, #carta2:hover, #carta3:hover {
+      transform: scale(1.2);
+      transition: transform 0.3s ease;
+    }
+    
 
   /* Fin contenedor 1 */
 
@@ -173,6 +218,14 @@ header {
     
   }
 
+
+
+#redessociales i:hover {
+    color: rgba(104, 82, 47, 0.609);
+    transform: scale(1.2, 1.2);
+}
+
+
   #redessociales{
     display: flex;
     flex-direction: row;
@@ -181,10 +234,14 @@ header {
     color: rgb(8, 9, 9);
     font-size: 34px;
   }
+  
+  #redessociales i {
+    font-size: 50px; /* Tamaño deseado para los iconos */
+}
 
   #redessociales i:hover{
     color: rgba(104, 82, 47, 0.609);
-    transform: scale(1.2,1.2);
+    transform: scale(1.4,1.4);
   }
 
 
@@ -270,63 +327,6 @@ footer {
 }
 
   }
-/* @media screen and (min-width: 375px ){
-  #logo img {
-    width: 91.8%;
-}
-  label {
-  top: 213.9px;
-  right: 30.4px;
-}
-
-#paseador {
-  width: 105.8%;
-}
-
-#paseador p {
-  margin-left: 2.2%;
-}
-
-#card1 {
-  margin-left: 6.7%;
-  height: 10vh;
-}
-
-  #logo img {
-    width: 108.5%;
-  }
-
-  #section_principal {
-    width: 85.6%;
-    height: 77.8vh;
-}
-.boton {
-  margin-left: 15.9%;
-  margin-bottom: 5.8%;
-}
-  #paseador {
-    width: 84.4%;
-}
-#paseador2 {
-  width: 84.9%;
-}
-
-  #section_definicion {
-  height: 80.7vh;
-}
-#section_banner img {
-  width: 111.6%;
-}
-  footer{
-    height: 18.7vh;
-    width: 111.3%;
-    
-  }
-
-  #carta1, #carta2, #carta3 {
-    padding-bottom: 10px;
-    margin-left: 5.9%;}
-} */
 
 
  /*Inicio en tablet*/
