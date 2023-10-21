@@ -5,6 +5,10 @@
     box-sizing: border-box;
     font-family: sans-serif;
 }
+#formu {
+    margin-top: 2px;
+    margin-bottom: 20px; /* Establece el margen en la parte inferior del formulario */
+}
 
 body{
     display: flex;
@@ -14,7 +18,7 @@ body{
     align-items: center;
     background-image: url(../img/collagedogs.png);
     background-size: cover;
-    border: 1px solid #aa1414;
+    /* border: 1px solid #aa1414; */
 }
 
 #contenedor{
@@ -37,6 +41,10 @@ body{
     text-shadow: 1px 1px 1px rgb(59, 24, 5);
     border-bottom: solid 2px rgb(130, 65, 20);
 }
+.oculto {
+    display: none;
+}
+
 
 .menu_info_usuario{
     display: flex;
@@ -129,9 +137,10 @@ body{
 
 .box{
     margin-top: 40px;
-    background: rgba(255, 255, 255, 0.775);
+    background: rgba(255, 253, 247, 0.532);
     padding: 1%;
     border-radius: 5%;
+    
 }
 .box i{
     text-align: center;
