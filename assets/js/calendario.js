@@ -1,22 +1,57 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const diasMes = document.querySelector('.dias-mes');
+const especialistas = [
+    "Luis Alvarez",
+    "Gisell Dominguez",
+    "Jessica Maria Valbuena",
+    "Isabella Torrez",
+    "Oscar Arturo Gonzales",
+    "Gustavo Alarcon vanegas",
+    "Maribel Rosado Fernandez",
+    "Isabella Torrez"
+];
 
-    // Obtén el primer día del mes actual y el último día del mes actual
-    const primerDia = new Date(new Date().getFullYear(), new Date().getMonth(), 1).getDay();
-    const ultimoDia = new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0).getDate();
+const clienteJSON = localStorage.getItem('programacionDatos');
+const cliente = clienteJSON ? JSON.parse(clienteJSON) : null;
 
-    // Rellena los días vacíos al principio del mes
-    for (let i = 0; i < primerDia; i++) {
-        const diaVacio = document.createElement('div');
-        diaVacio.classList.add('dia', 'vacio');
-        diasMes.appendChild(diaVacio);
-    }
+const form = document.getElementById("form");
+const especialistasSelect = document.getElementById("especialistas");
+const cronogramaDiv = document.getElementById("cronograma");
 
-    // Rellena los días del mes
-    for (let i = 1; i <= ultimoDia; i++) {
-        const dia = document.createElement('div');
-        dia.classList.add('dia');
-        dia.textContent = i;
-        diasMes.appendChild(dia);
-    }
+// Llenar el select con los especialistas
+especialistas.forEach((especialista, index) => {
+    const option = document.createElement("option");
+    option.value = index;
+    option.textContent = `${index + 1} - ${especialista}`;
+    especialistasSelect.appendChild(option);
 });
+
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const selectedEspecialistaIndex = especialistasSelect.value;
+    const selectedEspecialista = especialistas[selectedEspecialistaIndex];
+
+    // Mostrar datos del cliente en la tabla
+    const table = document.createElement("table");
+    table.innerHTML = `
+        <tr>
+            <th>Especialista</th>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Celular</th>
+            <th>Fecha</th>
+            
+        </tr>
+        <tr>
+            <td>${selectedEspecialista}</td>
+            <td>${cliente ? cliente.nombres + ' ' + cliente.apellidos : 'N/A'}</td>
+            <td>${cliente ? cliente.correo : 'N/A'}</td>
+            <td>${cliente ? cliente.celular : 'N/A'}</td>
+            <td>${cliente ? cliente.fecha : 'N/A'}</td>
+        </tr>
+     
+    `;
+
+    cronogramaDiv.innerHTML = "";
+    cronogramaDiv.appendChild(table);
+});
+

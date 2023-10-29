@@ -9,13 +9,14 @@ window.addEventListener('load', function() {
     };
 
     const formulario = {
-        nombre: "",
-        apellido: "",
+        nombres: "",
+        apellidos: "",
         correo: "",
         celular: "",
         especialistas: "",
         fecha: ""
     };
+    
 
     const campos = {
         nombres: document.getElementById('nombres'),
@@ -61,24 +62,26 @@ window.addEventListener('load', function() {
 
     const mostrarDatos = () => {
         if (validarFormulario()) {
-            const boxDashed = document.querySelector(".dashed");
-            boxDashed.style.display = "block";
-            const datos = Object.values(formulario);
-            datos.forEach(dato => {
-                const parrafo = document.createElement("p");
-                parrafo.textContent = dato;
-                boxDashed.appendChild(parrafo);
-            });
-
-            // Mostrar el elemento previamente oculto
-            const programacionLista = document.querySelector(".box.dashed");
-            programacionLista.classList.remove("oculto");
+            const datos = {
+                nombres: formulario.nombres,
+                apellidos: formulario.apellidos,
+                correo: formulario.correo,
+                celular: formulario.celular,
+                especialistas: formulario.especialistas,
+                fecha: formulario.fecha
+            };
+    
+            // Almacenar datos en localStorage como JSON
+            localStorage.setItem('programacionDatos', JSON.stringify(datos));
+    
+            // Redirigir a la página calendario.html
+            window.location.href = 'calendario.html';
         }
     };
 
     const manejarInput = (campo, key) => {
         campo.addEventListener('input', (e) => {
-            formulario[key] = e.target.value;
+            formulario[key] = e.target.value.toLowerCase();
         });
     };
 

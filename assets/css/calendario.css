@@ -1,58 +1,76 @@
 body {
     font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     margin: 0;
-    padding: 0;
+    font-size: 12px;
+    background-color: #43abf1; /* Color corporativo azul */
 }
 
 .container {
-    display: flex;
-    margin: 20px;
-}
-
-.especialistas {
-    width: 150px;
-    background-color: #f2f2f2;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-.especialistas ul {
-    list-style: none;
-    padding: 0;
-}
-
-.especialistas li {
-    margin-bottom: 10px;
-}
-
-.calendario {
-    width: 80%;
-    margin-left: 20px;
-    border: 1px solid #ccc;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-.dias-semana {
-    display: flex;
-    justify-content: space-around;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.dias-mes {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 10px;
-}
-
-.dia {
-    padding: 10px;
-    border: 1px solid #ccc;
     text-align: center;
+    width: 90%;
+    max-width: 500px; /* Establece un ancho máximo para el contenedor */
+    margin-top: 50px;
+    background-color: rgb(255, 255, 255); /* Fondo blanco para el contenedor */
+    padding: 20px;
+    border-radius: 10px; /* Esquinas redondeadas */
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5); /* Sombra */
 }
 
-.vacio {
-    visibility: hidden;
+form {
+    margin-bottom: 20px;
 }
 
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+tr, td {
+    width: 50%;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 10px;
+}
+.volver-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #97209b;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+
+h1{
+   color: #97209b;
+}
+
+.volver-btn:hover{
+    background-color: #b75abb;
+}
+
+#form button[type="submit"] {
+    background-color: #97209b; 
+    color: white; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease;
+}
+
+#form button[type="submit"]:hover {
+    background-color:  #b75abb;
+}
