@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    margin: 20px;
+}
+
+.especialistas {
+    width: 150px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.especialistas ul {
+    list-style: none;
+    padding: 0;
+}
+
+.especialistas li {
+    margin-bottom: 10px;
+}
+
+.calendario {
+    width: 80%;
+    margin-left: 20px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.dias-semana {
+    display: flex;
+    justify-content: space-around;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.dias-mes {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+.dia {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.vacio {
+    visibility: hidden;
+}
+
