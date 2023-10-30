@@ -82,7 +82,7 @@ window.addEventListener('load', function() {
 
             // Esperar 3 segundos antes de redirigir a la página calendario.html
             setTimeout(function() {
-                window.location.href = 'calendario.html';
+                window.location.href = 'cronograma.html';
             }, 3000);
         }
     };
