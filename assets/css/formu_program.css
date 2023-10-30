@@ -41,9 +41,22 @@ body{
     text-shadow: 1px 1px 1px rgb(59, 24, 5);
     border-bottom: solid 2px rgb(130, 65, 20);
 }
+/* Estilo para el spinner */
+.spinner {
+    text-align: center;
+    color: #31a033;
+}
+
+.spinner i {
+    font-size: 50px;
+}
 .oculto {
     display: none;
 }
+
+
+
+
 
 
 .menu_info_usuario{

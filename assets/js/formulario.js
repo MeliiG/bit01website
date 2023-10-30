@@ -1,22 +1,16 @@
 'use strict';
 
 window.addEventListener('load', function() {
-    const expresiones = {
-        Nombres: /^[a-zA-ZÀ-ÿ\s]{4,40}$/,
-        Apellidos: /^[a-zA-ZÀ-ÿ\s]{5,40}$/,
-        Correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-        Celular: /^\d{10,13}$/
-    };
-
-    const formulario = {
-        nombres: "",
-        apellidos: "",
-        correo: "",
-        celular: "",
-        especialistas: "",
-        fecha: ""
-    };
-    
+    const especialistas = [
+        "Luis Alvarez",
+        "Gisell Dominguez",
+        "Jessica Maria Valbuena",
+        "Isabella Torrez",
+        "Oscar Arturo Gonzales",
+        "Gustavo Alarcon vanegas",
+        "Maribel Rosado Fernandez",
+        "Isabella Torrez"
+    ];
 
     const campos = {
         nombres: document.getElementById('nombres'),
@@ -51,10 +45,10 @@ window.addEventListener('load', function() {
 
     const validarFormulario = () => {
         return (
-            validarCampo(campos.nombres, expresiones.Nombres, errores.nombres) &&
-            validarCampo(campos.apellidos, expresiones.Apellidos, errores.apellidos) &&
-            validarCampo(campos.correo, expresiones.Correo, errores.correo) &&
-            validarCampo(campos.celular, expresiones.Celular, errores.celular) &&
+            validarCampo(campos.nombres, /^[a-zA-ZÀ-ÿ\s]{4,40}$/, errores.nombres) &&
+            validarCampo(campos.apellidos, /^[a-zA-ZÀ-ÿ\s]{5,40}$/, errores.apellidos) &&
+            validarCampo(campos.correo, /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/, errores.correo) &&
+            validarCampo(campos.celular, /^\d{10,13}$/, errores.celular) &&
             validarCampo(campos.especialistas, /^.+$/, errores.especialistas) &&
             validarCampo(campos.fecha, /^.+$/, errores.fecha)
         );
@@ -62,33 +56,38 @@ window.addEventListener('load', function() {
 
     const mostrarDatos = () => {
         if (validarFormulario()) {
+            const especialistaIndex = campos.especialistas.value;
             const datos = {
-                nombres: formulario.nombres,
-                apellidos: formulario.apellidos,
-                correo: formulario.correo,
-                celular: formulario.celular,
-                especialistas: formulario.especialistas,
-                fecha: formulario.fecha
+                nombres: campos.nombres.value,
+                apellidos: campos.apellidos.value,
+                correo: campos.correo.value,
+                celular: campos.celular.value,
+                especialista: especialistas[especialistaIndex],
+                fecha: campos.fecha.value
             };
-    
+            // Convertir especialistaIndex a número antes de guardarlo en el localStorage
+            datos.especialista = parseInt(especialistaIndex);
             // Almacenar datos en localStorage como JSON
             localStorage.setItem('programacionDatos', JSON.stringify(datos));
-    
-            // Redirigir a la página calendario.html
-            window.location.href = 'calendario.html';
+
+            // Mostrar datos en el div oculto
+            const divOculto = document.querySelector('.box.dashed.oculto');
+            divOculto.innerHTML = `<i class="fa-solid fa-circle-check" style="color: #31a033;"></i><h3>Programacion Lista</h3>`;
+            for (const [key, value] of Object.entries(datos)) {
+                divOculto.innerHTML += `<p>${key.charAt(0).toUpperCase() + key.slice(1)}: ${value}</p>`;
+            }
+
+            // Mostrar el div oculto
+            divOculto.classList.remove('oculto');
+
+            // Esperar 3 segundos antes de redirigir a la página calendario.html
+            setTimeout(function() {
+                window.location.href = 'calendario.html';
+            }, 3000);
         }
     };
 
-    const manejarInput = (campo, key) => {
-        campo.addEventListener('input', (e) => {
-            formulario[key] = e.target.value.toLowerCase();
-        });
-    };
-
-    Object.keys(campos).forEach(key => {
-        manejarInput(campos[key], key);
-    });
-
+    // Manejar evento click del botón
     const aceptar = document.getElementById('aceptar');
     aceptar.addEventListener('click', (e) => {
         e.preventDefault();
